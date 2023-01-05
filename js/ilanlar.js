@@ -37,7 +37,7 @@ const login = document.getElementById("login");
 let user_name = document.getElementById("user-name");
 const logout = document.getElementById("logout");
 const ilangir = document.querySelector(".ilangir");
-const favpage = document.getElementById("favpage");
+const favpage = document.querySelector("#favpage");
 
 const Otomobil = document.getElementById("Otomobil");
 const Suv = document.getElementById("Suv");
