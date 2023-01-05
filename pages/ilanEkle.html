@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" />
+
+  <link rel="stylesheet" href="./style.css">
+  <title>İlan Ekle</title>
+</head>
+
+<body>
+  <!-- Alert -->
+  <div class="toast align-items-center text-white bg-success border-0 position-absolute end-0 m-3" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div id="toastBody" class="toast-body">İlan Eklendi !</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+        aria-label="Close"></button>
+    </div>
+  </div>
+  <!-- Alert -->
+
+  <nav class="navbar navbar-expand-lg container p-3 shadow-sm rounded-4 mb-5">
+    <div class="container-fluid">
+      <img src="./img/logo.png" width="20%" alt="" />
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link mx-2" aria-current="page" href="../index.html">Ana Sayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="./ilanlar.html">İlanlar</a>
+            
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link mx-2" href="./ilanEkle.html">İlan Gir</a>
+          </li>
+          <li class="nav-item">
+            <a id="favpage" class="nav-link mx-2" href="./favoriler.html">Favoriler</a>
+          </li>
+          <li id="login" class="nav-item">
+            <a class="nav-link mx-2 border" href="../login/login.html">Giriş Yap</a>
+          </li>
+          <li id="register" class="nav-item">
+            <a class="nav-link mx-2 border" href="../register/register.html">Kayıt Ol</a>
+          </li>
+
+
+          <li id="" class="nav-item">
+            <a class="nav-link mx-2  user-name"></a>
+          </li>
+
+          <li class="nav-item">
+            <button id="logout" class=" mx-2  btn btn-danger -z-1">
+              Çıkış Yap
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="loader" class="loader"></div>
+
+
+  <div>
+    <div class="container">
+      <section class="h-100 d-flex justify-content-center">
+        <div class="container h-100 mx-xl-auto">
+          <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+              <div class="card fat">
+                <div class="card-body">
+                  <h1 class="card-title text-center fw-bold text-secondary">İlan Ekle</h1>
+                  <div novalidate="">
+                    <div class="">
+                      <label for="title">Başlık</label>
+                      <input id="title" type="text" class="form-control placeholder-sm" name="title" required
+                        placeholder="Zorunlu Alan" />
+                    </div>
+                    <select class="form-control my-2" id="sel">
+                      <option class="text-center" id="select-opt" value="">--Lütfen Bekleyin... --</option>
+                    </select> <br>
+                    <label for="brand">Marka</label>
+                    <input id="brand" type="text" class="form-control" name="brand" required />
+                  </div>
+
+                  <div class="">
+                    <label for="model">Model</label>
+                    <input id="model" type="text" class="form-control" name="model" required />
+                  </div>
+                  <div class="">
+                    <label for="model">Kategori</label>
+                    <select id="category" type="text" class="form-control" name="category" required >
+                      <option value="Otomobil">Otomobil</option>
+                      <option value="Suv">Suv</option>
+                      <option value="Ticari">Ticari</option>
+                      <option value="Minivan&Panelvan">Minivan & Panelvan</option>
+                    </select>
+
+                  </div>
+                  <div class="">
+                    <label for="year">Yıl</label>
+                    <select id="year" type="number" class="form-control" name="year" required placeholder="2021">
+                      <option value="2022">2022</option>
+                      <option value="2021">2021</option>
+                      <option value="2020">2020</option>
+                      <option value="2019">2019</option>
+                      <option value="2018">2018</option>
+                      <option value="2017">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+                      <option value="2011">2011</option>
+                      <option value="2010">2010</option>
+                      <option value="2009">2009</option>
+                      <option value="2008">2008</option>
+                    </select>
+                  </div>
+                  <div class="">
+                    <label for="price">Fiyat</label>
+                    <input id="price" type="number" class="form-control placeholder-wave" name="price" placeholder="₺"
+                      required />
+                  </div>
+
+                  <div class="">
+                    <label for="price">Km</label>
+                    <input id="km" type="number" class="form-control" name="km" required placeholder="198.000" />
+                  </div>
+                  <div class="">
+                    <label for="fuel">Yakıt</label>
+                    <input id="fuel" type="text" class="form-control" name="fuel" required placeholder="Benzin" />
+                  </div>
+                  <div class="">
+                    <label for="gear">Vites</label>
+                    <input id="gear" type="text" class="form-control" name="gear" required
+                      placeholder="Yarı Otomatik" />
+                  </div>
+                  <div class="">
+                    <label for="status">Araç Durumu</label>
+                    <input id="status" type="text" class="form-control" name="status" required
+                      placeholder="İkinci El, Sıfır" />
+                  </div>
+                  <div class="">
+                    <label for="motohp">Motor Gücü</label>
+                    <input id="motohp" type="number" class="form-control" name="motohp" required placeholder="180 hp" />
+                  </div>
+                  <div class="">
+                    <label for="motocc">Motor Hacmi</label>
+                    <input id="motocc" type="number" class="form-control" name="motocc" required
+                      placeholder="1984 cc" />
+                  </div>
+                  <div class="">
+                    <label for="color">Renk</label>
+                    <input id="color" type="text" class="form-control" name="color" required placeholder="Beyaz" />
+                  </div>
+                  <div class="">
+                    <label for="color">Numara</label>
+                    <input id="number" type="number" class="form-control" name="number" required placeholder="0542 000 0000" />
+                  </div>
+                  <div class="">
+                    <label for="description">Açıklama</label>
+                    <textarea name="description" id="description" class="w-100" rows="10"></textarea>
+                  </div>
+                  <div class="">
+                    <label for="location">Yer / Bölge</label>
+                    <input id="location" type="text" class="form-control" name="location" required />
+                  </div>
+                  <div >
+                    <label class="my-2" for="photo">Resim Yükle ( 5 Resim Yükleyiniz !)</label>
+
+                    <div class="post-container">
+                      <div class="upload-file">
+                        <input type="file" id="files" multiple /><br /><br />
+
+                        <p id="yükleniyor"></p>
+                        <progress value="0" max="100" id="progress" class="w-100"></progress>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="m-0 mt-4">
+                    <button id="add" class="btn btn-primary btn-block w-100">
+                      Ekle
+                    </button>
+                    <h5 class="text-success text-center" id="success"></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </section>
+  </div>
+  </div>
+
+  <script type="module" src="../js/ilanEkle.js">
+   
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
